@@ -1,7 +1,7 @@
 ﻿namespace Escalouve.Domain.Entities;
 
-public class Instrumento
+public sealed class Instrumento
 {
-    public int Id { get; set; }
-    public required string Nome { get; set; }
+    public int Id { get; private set; }
+    public string Nome { get; private set; }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Escalouve.Domain.Entities;
 
-public class Integrante
+public sealed class Integrante
 {
     public int Id { get; set; }
-    public required string Nome { get; set; }
-    public required List<Instrumento> Instrumentos { get; set; }
+    public string Nome { get; private set; }
+    public List<Instrumento> Instrumentos { get; set; }
 }

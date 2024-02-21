@@ -2,9 +2,9 @@
 
 namespace Escalouve.Domain.Entities;
 
-public class IntegranteInstrumento
+public sealed class IntegranteInstrumento
 {
-    public int IntegranteId { get; set; }
-    public int InstrumentoId { get; set; }
-    public NivelEnum Nivel { get; set; }
+    public int IntegranteId { get; private set; }
+    public int InstrumentoId { get; private set; }
+    public NivelEnum Nivel { get; private set; }
 }
