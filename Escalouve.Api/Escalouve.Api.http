@@ -1,0 +1,6 @@
+@Escalouve.Api_HostAddress = http://localhost:5249
+
+GET {{Escalouve.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
