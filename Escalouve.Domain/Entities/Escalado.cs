@@ -5,26 +5,23 @@ namespace Escalouve.Domain.Entities;
 public sealed class Escalado
 {
     public int Id { get; private set; }
-    public Integrante Integrante { get; private set; }
-    public Instrumento Instrumento { get; private set; }
+    public int IntegranteId { get; private set; }
+    public int InstrumentoId { get; private set; }
+    public Integrante Integrante { get; set; }
+    public Instrumento Instrumento { get; set; }
 
-    public Escalado(Integrante integrante, Instrumento instrumento)
+    public Escalado(int integranteId, int instrumentoId)
     {
-        Validate(integrante, instrumento);
+        Validate(integranteId, instrumentoId);
     }
 
-    public void Update(Integrante integrante, Instrumento instrumento)
+    private void Validate(int integranteId, int instrumentoId)
     {
-        Validate(integrante, instrumento);
-    }
+        DomainExceptionValidation.When(integranteId <= 0, "IntegranteId inválido. O id do integrante não pode ser menor ou igual a zero.");
 
-    private void Validate(Integrante integrante, Instrumento instrumento)
-    {
-        DomainExceptionValidation.When(!integrante.Ativo, "Integrante inválido. O integrante está inativo.");
+        DomainExceptionValidation.When(instrumentoId <= 0, "InstrumentoId inválido. O id do instrumento não pode ser menor ou igual a zero.");
 
-        DomainExceptionValidation.When(!integrante.Instrumentos.Any(i => i.Id == instrumento.Id), "Instrumento inválido. O instrumento não está cadastrado para o integrante.");
-
-        Integrante = integrante;
-        Instrumento = instrumento;
+        IntegranteId = integranteId;
+        InstrumentoId = instrumentoId;
     }
 }
