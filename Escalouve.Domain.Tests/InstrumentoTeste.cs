@@ -1,4 +1,5 @@
-﻿using Escalouve.Domain.Entities;
+﻿using Escalouve.Domain.Constantes;
+using Escalouve.Domain.Entities;
 using Escalouve.Domain.Validation;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Escalouve.Domain.Tests
                 var instrumento = new Instrumento("Ab");
             });
 
-            Assert.Equal("Nome inválido. O nome não pode ter menos que 3 caracteres.", e.Message);
+            Assert.Equal($"Nome inválido. O nome não pode ter menos que {Validacao.TAMANHO_MINIMO_3} caracteres.", e.Message);
         }
 
         [Fact]
@@ -40,7 +41,7 @@ namespace Escalouve.Domain.Tests
                                              "12345678901234567890123456789012345678901234567890");
             });
 
-            Assert.Equal("Nome inválido. O nome não pode ter mais que 250 caracteres.", e.Message);
+            Assert.Equal($"Nome inválido. O nome não pode ter mais que {Validacao.TAMANHO_MAXIMO_100} caracteres.", e.Message);
         }
 
         [Fact]
@@ -51,7 +52,7 @@ namespace Escalouve.Domain.Tests
                 var instrumento = new Instrumento("");
             });
 
-            Assert.Equal("Nome inválido. O nome não pode ter menos que 3 caracteres.", e.Message);
+            Assert.Equal($"Nome inválido. O nome não pode ter menos que {Validacao.TAMANHO_MINIMO_3} caracteres.", e.Message);
         }
     }
 }
