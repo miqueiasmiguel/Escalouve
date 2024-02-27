@@ -7,8 +7,8 @@ public sealed class Instrumento
 {
     public int Id { get; private set; }
     public string Nome { get; private set; }
-    public List<Integrante> Integrantes { get; set; }
-    public List<IntegranteInstrumento> IntegrantesInstrumentos { get; set; }
+    public ICollection<Integrante> Integrantes { get; set; }
+    public ICollection<IntegranteInstrumento> IntegrantesInstrumentos { get; set; }
 
     public Instrumento(string nome)
     {

@@ -7,7 +7,7 @@ public sealed class Escala
     public int Id { get; private set; }
     public DateTime Data { get; private set; }
     public IDictionary<int, int> Layout { get; private set; }
-    public List<Escalado> Escalados { get; set; }
+    public ICollection<Escalado> Escalados { get; set; }
 
     public Escala(DateTime data, IDictionary<int, int> layout)
     {

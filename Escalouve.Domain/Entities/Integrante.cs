@@ -8,8 +8,8 @@ public sealed class Integrante
     public int Id { get; private set; }
     public string Nome { get; private set; }
     public bool Ativo { get; private set; }
-    public List<Instrumento> Instrumentos { get; set; }
-    public List<IntegranteInstrumento> IntegrantesInstrumentos { get; set; }
+    public ICollection<Instrumento> Instrumentos { get; set; }
+    public ICollection<IntegranteInstrumento> IntegrantesInstrumentos { get; set; }
 
     public Integrante(string nome)
     {
