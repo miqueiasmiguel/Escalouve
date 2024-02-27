@@ -19,7 +19,7 @@ namespace Escalouve.Infra.Data.Repositories
             _context = context;
         }
 
-        public async Task<Instrumento> Create(Instrumento entity)
+        public async Task<Instrumento> CreateAsync(Instrumento entity)
         {
             _context.Add(entity);
             await _context.SaveChangesAsync();
@@ -27,7 +27,7 @@ namespace Escalouve.Infra.Data.Repositories
             return entity;
         }
 
-        public async Task<Instrumento> Delete(Instrumento entity)
+        public async Task<Instrumento> DeleteAsync(Instrumento entity)
         {
             _context.Remove(entity);
             await _context.SaveChangesAsync();
@@ -35,17 +35,17 @@ namespace Escalouve.Infra.Data.Repositories
             return entity;
         }
 
-        public async Task<IEnumerable<Instrumento>> GetAll()
+        public async Task<IEnumerable<Instrumento>> GetAllAsync()
         {
             return await _context.Instrumentos.ToListAsync();
         }
 
-        public async Task<Instrumento?> GetById(int id)
+        public async Task<Instrumento?> GetByIdAsync(int id)
         {
             return await _context.Instrumentos.FindAsync(id);
         }
 
-        public async Task<Instrumento> Update(Instrumento entity)
+        public async Task<Instrumento> UpdateAsync(Instrumento entity)
         {
             _context.Update(entity);
             await _context.SaveChangesAsync();
