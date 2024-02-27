@@ -25,7 +25,8 @@ namespace Escalouve.Infra.Data.EntitiesConfiguration
 
             builder
                 .HasMany(e => e.Escalados)
-                .WithOne(e => e.Escala);
+                .WithOne(e => e.Escala)
+                .HasForeignKey(e => e.EscalaId);
         }
     }
 }

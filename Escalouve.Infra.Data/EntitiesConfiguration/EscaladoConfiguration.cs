@@ -25,10 +25,6 @@ namespace Escalouve.Infra.Data.EntitiesConfiguration
             builder
                 .Property(e => e.EscalaId)
                 .IsRequired();
-
-            builder
-                .HasOne(e => e.Escala)
-                .WithMany(e => e.Escalados);
         }
     }
 }
