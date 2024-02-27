@@ -1,6 +1,7 @@
 ﻿using Escalouve.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace Escalouve.Infra.Data.EntitiesConfiguration
                 .IsRequired();
             builder
                 .Property(e => e.Layout)
+                .HasConversion(
+                    e => JsonConvert.SerializeObject(e),
+                    e => JsonConvert.DeserializeObject<Dictionary<int, int>>(e))
                 .IsRequired();
 
             builder
