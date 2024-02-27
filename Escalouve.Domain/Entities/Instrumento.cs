@@ -1,5 +1,4 @@
-﻿using Escalouve.Domain.Constantes;
-using Escalouve.Domain.Validation;
+﻿using Escalouve.Domain.Validation;
 
 namespace Escalouve.Domain.Entities;
 
@@ -17,10 +16,10 @@ public sealed class Instrumento
 
     private void Validar(string nome)
     {
-        DomainExceptionValidation.When(nome.Length > Validacao.TamanhoMaximo100,
-            $"Nome inválido. O nome não pode ter mais que {Validacao.TamanhoMaximo100} caracteres.");
-        DomainExceptionValidation.When(nome.Length < Validacao.TamanhoMinimo3,
-            $"Nome inválido. O nome não pode ter menos que {Validacao.TamanhoMinimo3} caracteres.");
+        DomainExceptionValidation.When(nome.Length > Constantes.TamanhoMaximo100,
+            $"Nome inválido. O nome não pode ter mais que {Constantes.TamanhoMaximo100} caracteres.");
+        DomainExceptionValidation.When(nome.Length < Constantes.TamanhoMinimo3,
+            $"Nome inválido. O nome não pode ter menos que {Constantes.TamanhoMinimo3} caracteres.");
 
         Nome = nome;
     }
