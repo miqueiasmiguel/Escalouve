@@ -1,6 +1,4 @@
-﻿using Escalouve.Domain.Validation;
-
-namespace Escalouve.Domain.Entities;
+﻿namespace Escalouve.Domain.Entities;
 
 public sealed class Escalado
 {

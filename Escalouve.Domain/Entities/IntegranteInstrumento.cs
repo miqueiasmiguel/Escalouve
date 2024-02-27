@@ -1,5 +1,4 @@
 ﻿using Escalouve.Domain.Enums;
-using Escalouve.Domain.Validation;
 
 namespace Escalouve.Domain.Entities;
 
