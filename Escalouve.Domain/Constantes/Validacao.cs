@@ -8,7 +8,7 @@ namespace Escalouve.Domain.Constantes
 {
     public class Validacao
     {
-        public const int TAMANHO_MAXIMO_100 = 100;
-        public const int TAMANHO_MINIMO_3 = 3;
+        public const int TamanhoMaximo100 = 100;
+        public const int TamanhoMinimo3 = 3;
     }
 }

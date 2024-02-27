@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Escalouve.Infra.Data.EntityConfiguration
+namespace Escalouve.Infra.Data.EntitiesConfiguration
 {
     public class EscalaConfiguration : IEntityTypeConfiguration<Escala>
     {

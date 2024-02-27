@@ -24,10 +24,10 @@ public sealed class Integrante
 
     private void Validar(string nome)
     {
-        DomainExceptionValidation.When(nome.Length > Validacao.TAMANHO_MAXIMO_100,
-            $"Nome inválido. O nome não pode ter mais que {Validacao.TAMANHO_MAXIMO_100} caracteres.");
-        DomainExceptionValidation.When(nome.Length < Validacao.TAMANHO_MINIMO_3,
-            $"Nome inválido. O nome não pode ter menos que {Validacao.TAMANHO_MINIMO_3} caracteres.");
+        DomainExceptionValidation.When(nome.Length > Validacao.TamanhoMaximo100,
+            $"Nome inválido. O nome não pode ter mais que {Validacao.TamanhoMaximo100} caracteres.");
+        DomainExceptionValidation.When(nome.Length < Validacao.TamanhoMinimo3,
+            $"Nome inválido. O nome não pode ter menos que {Validacao.TamanhoMinimo3} caracteres.");
 
         Nome = nome;
     }

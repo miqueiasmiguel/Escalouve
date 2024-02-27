@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Escalouve.Infra.Data.EntityConfiguration
+namespace Escalouve.Infra.Data.EntitiesConfiguration
 {
     public class InstrumentoConfiguration : IEntityTypeConfiguration<Instrumento>
     {
@@ -19,7 +19,7 @@ namespace Escalouve.Infra.Data.EntityConfiguration
 
             builder
                 .Property(e => e.Nome)
-                .HasMaxLength(Validacao.TAMANHO_MAXIMO_100)
+                .HasMaxLength(Validacao.TamanhoMaximo100)
                 .IsRequired();
         }
     }
