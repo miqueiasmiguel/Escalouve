@@ -13,6 +13,7 @@ namespace Escalouve.Infra.Data.Context
         public DbSet<Integrante> Integrantes { get; set; }
         public DbSet<Integrante> Instrumento { get; set; }
         public DbSet<Escala> Escala { get; set; }
+        public DbSet<Escalado> Escalado { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

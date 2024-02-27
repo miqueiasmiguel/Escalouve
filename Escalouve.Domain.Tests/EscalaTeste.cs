@@ -8,10 +8,9 @@ namespace Escalouve.Domain.Tests
         [Fact]
         public void DeveInstanciarObjetoEscala()
         {
-            var layout = new Dictionary<Instrumento, int>();
-            var instrumento = new Instrumento("Violão");
+            var layout = new Dictionary<int, int>();
 
-            layout.Add(instrumento, 1);
+            layout.Add(1, 1);
 
             var escala = new Escala(DateTime.Today, layout);
         }
@@ -21,7 +20,7 @@ namespace Escalouve.Domain.Tests
         {
             var e = Assert.Throws<DomainExceptionValidation>(() =>
             {
-                var escala = new Escala(DateTime.Today, new Dictionary<Instrumento, int>());
+                var escala = new Escala(DateTime.Today, new Dictionary<int, int>());
             });
 
             Assert.Equal("Layout Inválido. O layout está vazio.", e.Message);
