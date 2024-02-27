@@ -2,6 +2,6 @@
 
 namespace Escalouve.Domain.Interfaces;
 
-public interface IEscala : IRepository<Escala>
+public interface IEscalaRepository : IRepository<Escala>
 {
 }

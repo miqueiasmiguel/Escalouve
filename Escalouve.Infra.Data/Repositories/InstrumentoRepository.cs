@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Escalouve.Infra.Data.Repositories
 {
-    public class InstrumentoRepository : IRepository<Instrumento>
+    public class InstrumentoRepository : IInstrumentoRepository
     {
         ApplicationDbContext _context;
 
