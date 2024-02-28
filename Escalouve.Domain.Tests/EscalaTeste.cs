@@ -23,7 +23,7 @@ namespace Escalouve.Domain.Tests
                 var escala = new Escala(DateTime.Today, new Dictionary<int, int>());
             });
 
-            Assert.Equal("Layout Inválido. O layout está vazio.", e.Message);
+            Assert.Equal("Campo \"Layout\" inválido. O campo \"Layout\" está vazio.", e.Message);
         }
     }
 }

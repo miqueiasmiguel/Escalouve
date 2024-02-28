@@ -1,4 +1,6 @@
-﻿using Escalouve.Domain.Validation;
+﻿using Escalouve.Domain.Shared;
+using Escalouve.Domain.Validation;
+using Mensagens = Escalouve.Domain.Shared.Mensagens;
 
 namespace Escalouve.Domain.Entities;
 
@@ -14,14 +16,12 @@ public sealed class Escala
         Validar(data, layout);
     }
 
-    public void Update(DateTime data, IDictionary<int, int> layout)
-    {
-        Validar(data, layout);
-    }
-
     private void Validar(DateTime data, IDictionary<int, int> layout)
     {
-        DomainExceptionValidation.When(layout.Count < 1, "Layout Inválido. O layout está vazio.");
+        DomainExceptionValidation.When(!layout.Any(),
+            string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(Layout)),
+                          Constantes.EspacoEmBranco,
+                          string.Format(Mensagens.Validacao.MensagemCampoVazio, nameof(Layout))));
 
         Data = data;
         Layout = layout;

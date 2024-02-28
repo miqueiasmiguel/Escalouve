@@ -1,5 +1,5 @@
-﻿using Escalouve.Domain;
-using Escalouve.Domain.Entities;
+﻿using Escalouve.Domain.Entities;
+using Escalouve.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

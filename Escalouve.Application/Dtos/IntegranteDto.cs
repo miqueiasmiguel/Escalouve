@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Escalouve.Domain.Shared;
+using System.ComponentModel.DataAnnotations;
 
 namespace Escalouve.Application.Dtos
 {
@@ -6,9 +7,12 @@ namespace Escalouve.Application.Dtos
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "'Nome é obrigatório'")]
-        [MinLength(3, ErrorMessage = "")]
+        [Required()]
+        [MinLength(Constantes.TamanhoMinimo3)]
+        [MaxLength(Constantes.TamanhoMaximo100)]
         public string Nome { get; set; }
+
+        [Required()]
         public bool Ativo { get; set; }
     }
 }
