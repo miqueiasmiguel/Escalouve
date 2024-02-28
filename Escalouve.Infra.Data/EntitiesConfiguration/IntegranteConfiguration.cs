@@ -1,12 +1,7 @@
-﻿using Escalouve.Domain.Constantes;
+﻿using Escalouve.Domain;
 using Escalouve.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Escalouve.Infra.Data.EntitiesConfiguration
 {
@@ -19,7 +14,7 @@ namespace Escalouve.Infra.Data.EntitiesConfiguration
 
             builder
                 .Property(e => e.Nome)
-                .HasMaxLength(Validacao.TamanhoMaximo100)
+                .HasMaxLength(Constantes.TamanhoMaximo100)
                 .IsRequired();
             builder
                 .Property(e => e.Ativo)
