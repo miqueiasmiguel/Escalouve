@@ -1,8 +1,8 @@
-﻿using Escalouve.Domain.Entities;
+﻿using Escalouve.Application.Dtos;
 
 namespace Escalouve.Application.Interfaces
 {
-    public interface IIntegranteService : IService<Integrante>
+    public interface IIntegranteService : IService<IntegranteDto>
     {
     }
 }

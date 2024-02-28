@@ -35,7 +35,7 @@ namespace Escalouve.Infra.Data.Repositories
             return await _context.Integrantes.ToListAsync();
         }
 
-        public async Task<Integrante?> GetByIdAsync(int id)
+        public async Task<Integrante?> GetByIdAsync(int? id)
         {
             return await _context.Integrantes.FindAsync(id);
         }

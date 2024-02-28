@@ -35,7 +35,7 @@ namespace Escalouve.Infra.Data.Repositories
             return await _context.Escalados.ToListAsync();
         }
 
-        public async Task<Escalado?> GetByIdAsync(int id)
+        public async Task<Escalado?> GetByIdAsync(int? id)
         {
             return await _context.Escalados.FindAsync(id);
         }
