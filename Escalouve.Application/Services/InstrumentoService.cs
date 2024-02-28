@@ -6,12 +6,12 @@ using Escalouve.Domain.Interfaces;
 
 namespace Escalouve.Application.Services
 {
-    public class IntrumentoService : IInstrumentoService
+    public class InstrumentoService : IInstrumentoService
     {
         private readonly IInstrumentoRepository _instrumentoRepository;
         private readonly IMapper _mapper;
 
-        public IntrumentoService(IInstrumentoRepository instrumentoRepository, IMapper mapper)
+        public InstrumentoService(IInstrumentoRepository instrumentoRepository, IMapper mapper)
         {
             _instrumentoRepository = instrumentoRepository;
             _mapper = mapper;

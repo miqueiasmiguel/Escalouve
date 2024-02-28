@@ -1,4 +1,7 @@
-﻿using Escalouve.Domain.Interfaces;
+﻿using Escalouve.Application.Interfaces;
+using Escalouve.Application.Mapping;
+using Escalouve.Application.Services;
+using Escalouve.Domain.Interfaces;
 using Escalouve.Infra.Data.Context;
 using Escalouve.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,10 +18,16 @@ namespace Escalouve.Infra.IoC
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"), b =>
                 b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+            services.AddAutoMapper(typeof(MappingProfile));
+
             services.AddScoped<IIntegranteRepository, IntegranteRepository>();
             services.AddScoped<IInstrumentoRepository, InstrumentoRepository>();
             services.AddScoped<IEscaladoRepository, EscaladoRepository>();
             services.AddScoped<IEscalaRepository, EscalaRepository>();
+
+            services.AddScoped<IIntegranteService, IntegranteService>();
+            services.AddScoped<IInstrumentoService, InstrumentoService>();
+            services.AddScoped<IEscalaService, EscalaService>();
 
             return services;
         }
