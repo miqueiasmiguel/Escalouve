@@ -6,11 +6,11 @@ namespace Escalouve.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IntrumentoController : ControllerBase
+    public class InstrumentoController : ControllerBase
     {
         private readonly IInstrumentoService _instrumentoService;
 
-        public IntrumentoController(IInstrumentoService instrumentoService)
+        public InstrumentoController(IInstrumentoService instrumentoService)
         {
             _instrumentoService = instrumentoService;
         }
