@@ -12,7 +12,6 @@ namespace Escalouve.Application.Dtos
         [MaxLength(Constantes.TamanhoMaximo100)]
         public string Nome { get; set; }
 
-        [Required()]
-        public bool Ativo { get; set; }
+        public bool? Ativo { get; set; }
     }
 }

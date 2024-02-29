@@ -8,7 +8,9 @@ namespace Escalouve.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<IntegranteDto, Integrante>();
+            CreateMap<IntegranteDto, Integrante>()
+                .ForMember(e => e.Ativo, opt => opt.MapFrom(dto => dto.Ativo ?? true));
+
             CreateMap<Integrante, IntegranteDto>();
 
             CreateMap<InstrumentoDto, Instrumento>();
