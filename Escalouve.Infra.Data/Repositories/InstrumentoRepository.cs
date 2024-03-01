@@ -30,6 +30,11 @@ namespace Escalouve.Infra.Data.Repositories
             return entity;
         }
 
+        public async Task<bool> Existe(int id)
+        {
+            return await _context.Instrumentos.AnyAsync(i => i.Id == id);
+        }
+
         public async Task<IEnumerable<Instrumento>> GetAllAsync()
         {
             return await _context.Instrumentos.ToListAsync();

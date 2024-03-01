@@ -1,5 +1,5 @@
 ﻿using Escalouve.Domain.Shared;
-using Escalouve.Domain.Validation;
+using Escalouve.Domain.Shared.Exceptions;
 using Mensagens = Escalouve.Domain.Shared.Mensagens;
 
 namespace Escalouve.Domain.Entities;
@@ -21,17 +21,17 @@ public sealed class Escalado
 
     private void Validar(int integranteId, int instrumentoId, int escalaId)
     {
-        DomainExceptionValidation.When(integranteId < Constantes.Quantidade1,
+        DomainValidationException.When(integranteId < Constantes.Quantidade1,
                     string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(IntegranteId)),
                                   Constantes.EspacoEmBranco,
                                   string.Format(Mensagens.Validacao.MensagemCampoInteiroMinimo, nameof(IntegranteId), Constantes.Quantidade1)));
 
-        DomainExceptionValidation.When(instrumentoId < Constantes.Quantidade1,
+        DomainValidationException.When(instrumentoId < Constantes.Quantidade1,
             string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(InstrumentoId)),
                           Constantes.EspacoEmBranco,
                           string.Format(Mensagens.Validacao.MensagemCampoInteiroMinimo, nameof(InstrumentoId), Constantes.Quantidade1)));
 
-        DomainExceptionValidation.When(escalaId < Constantes.Quantidade1,
+        DomainValidationException.When(escalaId < Constantes.Quantidade1,
             string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(EscalaId)),
                           Constantes.EspacoEmBranco,
                           string.Format(Mensagens.Validacao.MensagemCampoInteiroMinimo, nameof(EscalaId), Constantes.Quantidade1)));

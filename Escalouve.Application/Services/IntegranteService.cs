@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Escalouve.Application.Dtos;
 using Escalouve.Application.Interfaces;
+using Escalouve.Application.Services.Validation.Interfaces;
 using Escalouve.Domain.Entities;
 using Escalouve.Domain.Interfaces;
 
@@ -9,16 +10,24 @@ namespace Escalouve.Application.Services
     public class IntegranteService : IIntegranteService
     {
         private readonly IIntegranteRepository _integranteRepository;
+        private readonly IInstrumentoRepository _instrumentoRepository;
+        private readonly IIntegranteInstrumentoRepository _integranteInstrumentoRepository;
+        private readonly IIntegranteValidation _integranteValidation;
         private readonly IMapper _mapper;
 
-        public IntegranteService(IIntegranteRepository integranteRepository, IMapper mapper)
+        public IntegranteService(IIntegranteRepository integranteRepository, IMapper mapper, IInstrumentoRepository instrumentoRepository, IIntegranteInstrumentoRepository integranteInstrumentoRepository, IIntegranteValidation integranteValidation)
         {
             _integranteRepository = integranteRepository;
             _mapper = mapper;
+            _instrumentoRepository = instrumentoRepository;
+            _integranteInstrumentoRepository = integranteInstrumentoRepository;
+            _integranteValidation = integranteValidation;
         }
 
         public async Task<IntegranteDto> CreateAsync(IntegranteDto dto)
         {
+            _integranteValidation.Validar(dto);
+
             var integrante = _mapper.Map<Integrante>(dto);
 
             integrante = await _integranteRepository.CreateAsync(integrante);

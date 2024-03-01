@@ -1,5 +1,5 @@
 ﻿using Escalouve.Domain.Shared;
-using Escalouve.Domain.Validation;
+using Escalouve.Domain.Shared.Exceptions;
 using Mensagens = Escalouve.Domain.Shared.Mensagens;
 
 namespace Escalouve.Domain.Entities;
@@ -26,12 +26,12 @@ public sealed class Integrante
 
     private void Validar(string nome)
     {
-        DomainExceptionValidation.When(nome.Length > Constantes.TamanhoMaximo100,
+        DomainValidationException.When(nome.Length > Constantes.TamanhoMaximo100,
             string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(Nome)),
                           Constantes.EspacoEmBranco,
                           string.Format(Mensagens.Validacao.MensagemCampoTamanhoMaximo, nameof(Nome), Constantes.TamanhoMaximo100)));
 
-        DomainExceptionValidation.When(nome.Length < Constantes.TamanhoMinimo3,
+        DomainValidationException.When(nome.Length < Constantes.TamanhoMinimo3,
             string.Concat(string.Format(Mensagens.Validacao.MensagemCampoInvalido, nameof(Nome)),
                           Constantes.EspacoEmBranco,
                           string.Format(Mensagens.Validacao.MensagemCampoTamanhoMinimo, nameof(Nome), Constantes.TamanhoMinimo3)));

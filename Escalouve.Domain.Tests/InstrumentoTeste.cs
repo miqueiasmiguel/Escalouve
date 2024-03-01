@@ -1,6 +1,6 @@
 ﻿using Escalouve.Domain.Entities;
 using Escalouve.Domain.Shared;
-using Escalouve.Domain.Validation;
+using Escalouve.Domain.Shared.Exceptions;
 
 namespace Escalouve.Domain.Tests
 {
@@ -15,7 +15,7 @@ namespace Escalouve.Domain.Tests
         [Fact]
         public void DeveLancarExcecaoNomeCurtoAoInstanciarInstrumento()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var instrumento = new Instrumento("Ab");
             });
@@ -26,7 +26,7 @@ namespace Escalouve.Domain.Tests
         [Fact]
         public void DeveLancarExcecaoNomeLongoAoInstanciarInstrumento()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var instrumento = new Instrumento("12345678901234567890123456789012345678901234567890" +
                                              "12345678901234567890123456789012345678901234567890" +
@@ -42,7 +42,7 @@ namespace Escalouve.Domain.Tests
         [Fact]
         public void DeveLancarExcecaoNomeVazioAoInstanciarInstrumento()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var instrumento = new Instrumento("");
             });

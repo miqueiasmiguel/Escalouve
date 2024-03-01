@@ -1,6 +1,6 @@
 ﻿using Escalouve.Domain.Entities;
 using Escalouve.Domain.Shared;
-using Escalouve.Domain.Validation;
+using Escalouve.Domain.Shared.Exceptions;
 
 namespace Escalouve.Domain.Testes
 {
@@ -15,7 +15,7 @@ namespace Escalouve.Domain.Testes
         [Fact]
         public void DeveLancarExcecaoNomeCurtoAoInstanciarIntegrante()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var integrante = new Integrante("Ab");
             });
@@ -26,7 +26,7 @@ namespace Escalouve.Domain.Testes
         [Fact]
         public void DeveLancarExcecaoNomeLongoAoInstanciarIntegrante()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var integrante = new Integrante("12345678901234567890123456789012345678901234567890" +
                                                 "12345678901234567890123456789012345678901234567890" +
@@ -42,7 +42,7 @@ namespace Escalouve.Domain.Testes
         [Fact]
         public void DeveLancarExcecaoNomeVazioAoInstanciarIntegrante()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var integrante = new Integrante("");
             });

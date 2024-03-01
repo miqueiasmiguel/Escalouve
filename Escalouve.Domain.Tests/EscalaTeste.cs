@@ -1,5 +1,5 @@
 using Escalouve.Domain.Entities;
-using Escalouve.Domain.Validation;
+using Escalouve.Domain.Shared.Exceptions;
 
 namespace Escalouve.Domain.Tests
 {
@@ -18,7 +18,7 @@ namespace Escalouve.Domain.Tests
         [Fact]
         public void DeveLancarExcecaoLayoutVazioAoInstanciarEscala()
         {
-            var e = Assert.Throws<DomainExceptionValidation>(() =>
+            var e = Assert.Throws<DomainValidationException>(() =>
             {
                 var escala = new Escala(DateTime.Today, new Dictionary<int, int>());
             });
