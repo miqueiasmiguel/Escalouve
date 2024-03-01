@@ -2,6 +2,7 @@
 using Escalouve.Application.Mapping;
 using Escalouve.Application.Services;
 using Escalouve.Domain.Interfaces;
+using Escalouve.Infra.Data;
 using Escalouve.Infra.Data.Context;
 using Escalouve.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Escalouve.Infra.IoC
 
             services.AddAutoMapper(typeof(MappingProfile));
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IIntegranteRepository, IntegranteRepository>();
             services.AddScoped<IInstrumentoRepository, InstrumentoRepository>();
             services.AddScoped<IEscaladoRepository, EscaladoRepository>();
