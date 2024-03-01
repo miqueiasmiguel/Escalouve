@@ -55,5 +55,14 @@ namespace Escalouve.Application.Services
 
             return _mapper.Map<IntegranteDto>(integrante);
         }
+
+        public async Task AlternarStatusAsync(int id)
+        {
+            var integrante = await _integranteRepository.GetByIdAsync(id);
+
+            integrante.AlternarStatus();
+
+            await _integranteRepository.UpdateAsync(integrante);
+        }
     }
 }

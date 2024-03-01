@@ -48,6 +48,15 @@ namespace Escalouve.Api.Controllers
             return Ok(result);
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> AlternarStatusAsync(int id)
+        {
+            await _integranteService.AlternarStatusAsync(id);
+
+            return Ok();
+        }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
